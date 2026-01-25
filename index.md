@@ -1,15 +1,13 @@
 ---
 layout: home
+author_profile: true
+author: granza
+classes: wide
+title: Curiosity is the only thing I’m not willing to lose.
 ---
 
-Welcome.
+I am passionate about computing theory and driven by curiosity. 
+<br>
+I spend my time exploring how things work.
 
-This is my personal engineering journal.
-
-Here I document:
-- Failures and learnings
-- Technical challenges
-- Deep dives
-- Trade-offs
-
-Engineering, for me, is a lifelong discipline.
+This site is a record of that pursuit.

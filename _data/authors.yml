@@ -1,0 +1,12 @@
+granza:
+  name: "Granza"
+  avatar: "/assets/images/granza.png"
+  location: "Shanghai, China"
+  bio: "Curiosity is the only thing I’m not willing to lose."
+  links:
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/rafaelgranza"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/rafaelgranza"

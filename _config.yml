@@ -1,11 +1,28 @@
-title: Rafael Granza — Engineering Journal
+title: "Granza: Under the Hood"
 description: Personal engineering log, challenges, and a manifesto of intention.
 
-remote_theme: "mmistakes/minimal-mistakes"
+
+remote_theme: mmistakes/minimal-mistakes
+
 markdown: kramdown
 
 plugins:
-  - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-include-cache
 
+include:
+  - _pages
+
+minimal_mistakes_skin: default
+
+enable_copy_code_button: false
+use_cached_includes: false
+
+
+footer:
+  links:
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/rafaelgranza"

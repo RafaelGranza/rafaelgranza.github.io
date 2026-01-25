@@ -1,0 +1,7 @@
+main:
+  - title: "Manifesto"
+    url: /manifesto/
+  - title: "About"
+    url: /about/
+  - title: "Posts"
+    url: /posts/
