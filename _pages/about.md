@@ -4,19 +4,32 @@ permalink: /about/
 layout: single
 author_profile: true
 author: granza
+classes: wide
 ---
 
 
 I am interested in everything that is challenging and everything that is human. For me, knowledge has no fixed boundaries.
 
-My foundation is built on logic and high-performance thinking. I hold a Master’s degree in Applied Computing and I am an **ICPC World Finalist**. Competitive programming taught me how to enjoy hard problems and reason under pressure.
+I hold a Master’s degree in Applied Computing and I am an **ICPC World Finalist**. 
+Competitive programming taught me how to enjoy hard problems and how to reason under pressure.
 
-My journey has taken me through **Algorithms, High Performance, Quantum Computing, Languages, Number Theory, and much more**. 
+### Passionate about the Art
+* **Mathematics**: The foundation.
+* **Algorithms & Data Structures**: The core of today’s and tomorrow's machines.
+* **Optimization & Heuristics**: Finding answers when completeness says no.
+* **Financial Models**: Understanding the systems that move today's world.
+* **Quantum Computing**: Exploring the next frontier of logic.
 
-### I'm currently deep-diving into:
-* **Efficient and Concurrent C++**
-* **Systems** (OS, Networking, and Databases)
-* **Design**
-* **Mandarin Chinese**
+### Passionate about the Tools
+* **C++ & Concurrency**: Primary tools to express the art.
+* **Operating Systems & Networks**: Understanding how machines behave.
+* **Databases & Distributed Systems**: Scaling and Persistence.
 
-*This site is a record of that continuous and evolving journey.*
+### Passionate about the Process
+* **Learn**: The constant pursuit of the unknown.
+* **Work**: The discipline of building something real.
+* **Grow**: Moving past ego to become better every day.
+
+---
+
+*This site is a record of my continuous and evolving journey.*
