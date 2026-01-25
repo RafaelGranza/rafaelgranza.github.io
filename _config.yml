@@ -1,5 +1,11 @@
 title: Rafael Granza — Engineering Journal
 description: Personal engineering log, challenges, and a manifesto of intention.
-remote_theme: cotes2020/jekyll-theme-chirpy
+
+remote_theme: "mmistakes/minimal-mistakes"
 markdown: kramdown
-show_excerpts: true
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
