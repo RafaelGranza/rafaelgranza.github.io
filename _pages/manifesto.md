@@ -8,6 +8,10 @@ toc_label: "Principles"
 toc_icon: "cog"
 toc_sticky: true
 permalink: /manifesto/
+header:
+  overlay_image: /assets/images/about_banner.png
+  overlay_filter: 0.8
+  caption: "Order Book (Circular Buffer)"
 ---
 
 #### Knowledge is a lifetime goal

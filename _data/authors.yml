@@ -10,3 +10,6 @@ granza:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/rafaelgranza"
+    - label: "🎈 BRUTE"
+      icon: "empty"
+      url: "https://brute.joinville.udesc.br"

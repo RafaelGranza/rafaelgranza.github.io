@@ -2,8 +2,12 @@
 layout: home
 author_profile: true
 author: granza
-classes: wide
-title: Curiosity is the only thing I’m not willing to lose.
+title: "Granza: Under the Hood"
+
+header:
+  overlay_image: /assets/images/manifesto_banner.png
+  overlay_filter: 0.8
+  caption: "Matching Engine"
 ---
 
 I am passionate about computing theory and driven by curiosity. 
