@@ -10,7 +10,7 @@ tags: [C++, Ownership, Memory Management, API]
 sidebar:
   - title: "Further Reading"
     text: |
-      **Book:** [Modern Effective C++](https://ananyapam7.github.io/resources/C++/Scott_Meyers_Effective_Modern_C++.pdf)
+      **Book:** [Modern Effective C++](https://ananyapam7.github.io/resources/C++/Scott_Meyers_Effective_Modern_C++.pdf)<br>
       **Reference:** [Value categories](https://en.cppreference.com/w/cpp/language/value_category.html)
 ---
 
@@ -51,8 +51,10 @@ The main keyword here is **OWNERSHIP**, so you can divide methods into three mai
 - non-owning methods
 - generic methods
 
+You will see that I'll break these categories down into five sub-types, but the guiding principle is still ownership.
+
 ## Owning Methods
-Here you receive the argument and own it; in this example, you "steal" (move) the data.
+Here you receive the argument and own it. In this example, you "steal" (move) the data.
 
 ```c++
 Person temp_person;
@@ -72,19 +74,19 @@ set_name(std::move(name));              // 3
 For some people this looks weird, even for me when I first heard about this kind of pattern.
 You know, always creating a copy? sounds crazy at first. But lets break it down.
 
-The good stuff about passing by value is that you minimize the amount of move/copy operations you do overall.
+The good thing about passing by value is that it often minimizes total move/copy operations without introducing ownership pitfalls.
 
 Let me explain the marks in the code:
 
 1 - When passing an rvalue, the "str" variable (i.e., the param of `set_name`) is created via move construction, and after that it's moved again. So there are two moves here.
 
-2 - When passing an lvalue, the "str" variable (i.e., the param of `set_name`) is created by the copy construction, and after that it's moved. So there are one move and one copy. Unfortunely, it's impossible to do it in fewer operations, since the method does not know if it can take the ownership of an lvalue (which may be used in its source).
+2 - When passing an lvalue, the "str" variable (i.e., the param of `set_name`) is created by the copy construction, and after that it's moved. So there are one move and one copy. Unfortunately, it's impossible to do it in fewer operations, since the method does not know if it can take the ownership of an lvalue (which may be used in its source).
 
-3 - Additionaly, if the user wants to allow the moving of the lvalue, it can use `std::move` to cast it to an rvalue and benefit of the possible speedup of case 1.
+3 - Additionally, if the user wants to allow the moving of the lvalue, it can use `std::move` to cast it to an rvalue and benefit of the possible speedup of case 1.
 
-### Is it not fast enought for you?
+### Is it not fast enough for you?
 
-If you know this is in the middle of your hot path, or you have measured it ant it is killing your performance, one simple way to fix this is using overloads:
+If you know this is in the middle of your hot path, or you have measured it and it is killing your performance, one simple way to fix this is using overloads:
 
 ```c++
 // accepts lvalue references
@@ -92,7 +94,7 @@ void set_name(std::string& str){
     temp_person.name = std::move(str);
 }
 
-// accepts rvlaue references
+// accepts rvalue references
 void set_name(std::string&& str){
     temp_person.name = std::move(str);
 }
@@ -121,7 +123,7 @@ std::println("My password: {}", my_precious_string); // no longer works properly
 ```
 
 Thats why passing by copy is usally a good design choice.
-And if you ever need more sophisticade approaches, you implement it latter.
+And if you ever need more sophisticated approaches, you implement it later.
 
 For even more generic approaches, you should look at "Modern Effective C++.
 The parts talking about Universal References would make you happy, also known as Forwarding References.
@@ -130,11 +132,10 @@ The parts talking about Universal References would make you happy, also known as
 
 This part is not based on the "Modern Effective C++", it is more subjective to my previous experience.
 
-This is a special case of owning methods.
-Since it changes an argument, it behaves as a temporary owner.
-This is an example to borrowing ownership.
+This is a special case of ownership.
+You can see it is as a "temporary owner", like borrowing ownership.
 
-You pass by value, modify and than return.
+You pass by value, modify and then return it:
 
 ```c++
 std::string add_exclamation(std::string str){
@@ -146,26 +147,27 @@ std::string phrase = "Lorem Ipsum";
 phrase = add_exclamation(phrase);
 ```
 
-This guarantees that you do not lose the ownership of something you didn't mean to lose.
-Another way to do this would be pass by reference, but be aware of losing ownership:
+This guarantees that you do not lose ownership of something you didn't mean to.
+
+Another way to see a "pipe" is as a "non-owner" who has access to a non-owned object. You do this by passing a reference, but be aware of the side effects:
 ```c++
 void add_exclamation(std::string& str){
     str.push_back('!');
 }
 ```
 
-Pass by value has another pro, it is friendly to move-only objects, as [`std::thread`](https://en.cppreference.com/w/cpp/thread/thread) and [`std::unique_ptr`](https://en.cppreference.com/w/cpp/memory/unique_ptr).
+Pass by value has another pro: it is friendly to move-only objects, as [`std::thread`](https://en.cppreference.com/w/cpp/thread/thread) and [`std::unique_ptr`](https://en.cppreference.com/w/cpp/memory/unique_ptr).
 
 ```c++
 std::unique_ptr<int> foo(std::unique_ptr<int> ptr){ 
     // You are the owner of ptr
-    // Modifications DO NOT afect the caller.
+    // Modifications DO NOT affect the caller.
     return ptr;
 }
 
 void bar(std::unique_ptr<int>& ptr){
     // You are NOT the owner of ptr
-    // Modifications afect the caller.
+    // Modifications affect the caller.
 }
 ```
 
@@ -189,7 +191,9 @@ Here are the cases:
 
 2 - When passing an lvalue, no copies or moves happen either.
 
-Great! Next!
+The only exception here is when the type you are passing is smaller than or equal to a reference (usually 8 bytes), such as `int`, `char`, `bool`, and many others.
+
+This is still up for discussion, as you might stick with `const T&` to maintain consistency unless this optimization is truly on a hot path.
 
 ## Generic Methods
 
@@ -252,6 +256,27 @@ auto constructor_wrapper(Args&&... args) {
 }
 ```
 This implementation does not allow `std::nullptr_t`.
+
+
+### Attentions to Forwarding References
+
+Some types undergo implicit casting when passed to forwarding references. For instance, passing `NULL` as an argument will be forwarded as `0`, an integer. It also does not behave well with `std::initializer_list` deduction.
+
+Another point to consider is that in the `constructor_wrapper` example, the object is initialized using the "parenthesis constructor" `T(...)`. This can diverge from the result of using a "uniform constructor" (i.e., using `T{...}`), especially when dealing with types like `std::vector`.
+
+## Decision Lookup Table
+
+Here is a quick guide to help you choose the right signature based on the categories we discussed:
+
+| Category | Recommended Signature | Why? |
+| :--- | :--- | :--- |
+| **Owning Methods** (Sink) | `void f(T arg)` + `std::move` | Efficiently takes ownership (move or copy). |
+| **Pipe Methods** | `T& arg` or <br>`T f(T arg)` | Modifies in-place or via "copy-modify-return", depending on ownership intent.|
+| **Non-owning Methods** (Read) | `const T& arg` | Observes the object without copying. |
+| **Non-owning Methods** (Small*) | `T arg` | Small types are faster to pass by value. |
+| **Generic Methods** | `template<class T> f(T&& arg)` | For perfect forwarding in wrappers/factories. |
+
+*\*Small types: `int`, `double`, `bool`, `std::string_view`, `std::span`, etc.*
 
 ## Disclaimer
 

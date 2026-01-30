@@ -10,10 +10,8 @@ tags: [C++, Concurrency, Atomics]
 sidebar:
   - title: "Further Reading"
     text: |
-      **Book:** [C++ Concurrency in Action](https://www.manning.com/books/c-plus-plus-concurrency-in-action-second-edition)
-      
-      **Reference:** [std::atomic docs](https://en.cppreference.com/w/cpp/atomic/atomic)
-      
+      **Book:** [C++ Concurrency in Action](https://www.manning.com/books/c-plus-plus-concurrency-in-action-second-edition)<br>
+      **Reference:** [std::atomic docs](https://en.cppreference.com/w/cpp/atomic/atomic)<br>
       **Watch:** [Atomic Weapons (CppCon)](https://www.youtube.com/watch?v=A8eCGOqgvH4)
 ---
 
@@ -95,16 +93,14 @@ Because `x +=` is **not atomic**. It expands to three CPU steps:
 
 See how this can mess up the order of operations for the two threads:
 
-```text
-    Thread 1             Thread 2          Value of X
-----------------    ----------------    ----------------
-    read (0)                                   0
-    add  (1)                                   0
-                        read (0)               0
-    write(1)                                   1
-                        add  (2)               1
-                        write(2)               2
-```
+|    Thread 1      |       Thread 2     |     Value of X    |
+| :--------------: |  :--------------:  |  :--------------: |
+|    read (0)      |                    |         0         |
+|    add  (1)      |                    |         0         |
+|                  |      read (0)      |         0         |
+|    write(1)      |                    |         1         |
+|                  |      add  (2)      |         1         |
+|                  |      write(2)      |         2         |
 
 Here, the increment by `thread 1` is **lost**.
 This **is a data race**.
