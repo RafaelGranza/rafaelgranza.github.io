@@ -13,6 +13,12 @@ sidebar:
       **Book:** [C++ Concurrency in Action](https://www.manning.com/books/c-plus-plus-concurrency-in-action-second-edition)<br>
       **Reference:** [std::atomic docs](https://en.cppreference.com/w/cpp/atomic/atomic)<br>
       **Watch:** [Atomic Weapons (CppCon)](https://www.youtube.com/watch?v=A8eCGOqgvH4)
+
+header:
+  overlay_image: /assets/images/race_condition.png
+  overlay_filter: 0.8
+  caption: "Simple example of Race Condition"
+excerpt: "Everything that should be done together, will be done together."
 ---
 
 

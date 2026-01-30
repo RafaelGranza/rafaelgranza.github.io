@@ -6,9 +6,12 @@ author_profile: true
 author: granza
 categories: [Learning, Systems]
 tags: [C++, OS, Mandarin, Reading]
+header:
+  overlay_image: /assets/images/hsk.png
+  overlay_filter: 0.9
+  caption: "HSK 1 - Ideogram of mouth"
+excerpt: "In 2026, my goal is to better understand the tool of my art: the computer itself."
 ---
-
-In 2026, my goal is to better understand the tool of my art: the computer itself.
 
 I want to master real C++, Concurrency, Networks, Operating Systems, Distributed Systems, Databases, and more. 
 

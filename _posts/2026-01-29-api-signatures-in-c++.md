@@ -12,6 +12,12 @@ sidebar:
     text: |
       **Book:** [Modern Effective C++](https://ananyapam7.github.io/resources/C++/Scott_Meyers_Effective_Modern_C++.pdf)<br>
       **Reference:** [Value categories](https://en.cppreference.com/w/cpp/language/value_category.html)
+
+header:
+  overlay_image: /assets/images/2026-01-29-api-signatures-in-c++.png
+  overlay_filter: 0.8
+  caption: "Example of Pipe Method"
+excerpt: "Passing by reference is not always the way to go."
 ---
 
 In Java and Python, every object is tracked by a pointer, but the language hides it to make devs' lives easier.
