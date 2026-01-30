@@ -139,6 +139,7 @@ You pass by value, modify and then return it:
 
 ```c++
 std::string add_exclamation(std::string str){
+    // Taking ownership here would be OK.
     str.push_back('!');
     return str;
 }
@@ -149,9 +150,10 @@ phrase = add_exclamation(phrase);
 
 This guarantees that you do not lose ownership of something you didn't mean to.
 
-Another way to see a "pipe" is as a "non-owner" who has access to a non-owned object. You do this by passing a reference, but be aware of the side effects:
+Another way to see a "pipe" is as a "non-owner" who has access to a non-owned object. You do this by passing a reference, but be aware to NEVER take ownership:
 ```c++
 void add_exclamation(std::string& str){
+    // Taking ownership here would be a huge antipattern.
     str.push_back('!');
 }
 ```
