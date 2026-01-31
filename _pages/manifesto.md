@@ -17,6 +17,10 @@ header:
 #### Knowledge is a lifetime goal
 Learning is a commitment that goes beyond any job.
 
+#### ε-Correctness
+Correctness is the most important attribute of code. Under pressure, *ε* grows.
+Track your *ε*. Keep the system *ε-correct*.
+
 #### Documenting the Fog
 Record opaque problems and failures. It provides clarity for you and a map for others.
 
@@ -24,7 +28,7 @@ Record opaque problems and failures. It provides clarity for you and a map for o
 Seek challenges. Stay away from the comfort zone and give hard problems a try.
 
 #### Growth over Ego
-Be willing to start from the bottom at any time. Fail, learn, and build again.
+Be willing to start from the bottom at any time. Receive honest feedback. Fail, learn, and build again.
 
 #### Discipline and Initiative
 If you say you will do it, do it. Study continuously. If you fail, try again.
@@ -36,4 +40,4 @@ Take responsibility for hard problems. Fail if needed. Assume your faults. Repea
 Some problems are uncomputable. Don't be a hero. Know when to pivot.
 
 #### Give back
-Help others. No one achieves anything alone.
+No one achieves anything alone. Help others, teach, mentor, listen.
