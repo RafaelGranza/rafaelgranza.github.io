@@ -98,7 +98,7 @@ graph TD
 My very brief abstract about lvalues and rvalues:
 
 > - **`lvalues` are your average Joe variables**:<br>they have owners, names, and fixed addresses
-- **`rvalues` are the disciples of Diogenes**:<br>they have no names, their addresses aren’t fixed, and they can move around freely.
+- **`rvalues` are the disciples of [Diogenes](https://en.wikipedia.org/wiki/Diogenes)**:<br>they have no names, their addresses aren’t fixed, and they can move around freely.
 
 The AI feedback showed me some critical points I was missing:
 
