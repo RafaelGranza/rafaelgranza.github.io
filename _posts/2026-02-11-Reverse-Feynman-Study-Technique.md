@@ -103,16 +103,15 @@ My very brief abstract about lvalues and rvalues:
 The AI feedback showed me some critical points I was missing:
 
 **Conceptual inaccuracies found by AI:**
-* **“Rvalues’ address is not fixed”** ⚠️: Not all rvalues are completely “address-less.” Temporary rvalues do exist in memory, even if only briefly. A more precise phrasing: *“Their address is temporary / not meant to be relied upon.”*
-* **“They can move freely”** ⚠️: In C++, "move" refers to move semantics—transferring resources from one object to another—not literally wandering in memory.
+* **“They can move freely”**: In C++, "move" refers to move semantics—transferring resources from one object to another—not literally wandering in memory.
 * **Missing subcategories**: For full technical accuracy, I should eventually look into *prvalues* and *xvalues*.
 
 And here I rest my case. You iterate it yourself if you want.
 
 ## When to stop iterating?
 
-- **From an engineering perspective**: Learn enough to understand the implications of your solution.
-- **From a human perspective**: Learn until your soul is satiated.
+- **From an engineering perspective**:<br>Learn enough to understand the implications of your solution.
+- **From a human perspective**:<br>Learn until your soul is satiated.
 
 ## P.S.
 This post was developed using this technique.
