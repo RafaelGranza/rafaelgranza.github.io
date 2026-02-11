@@ -66,13 +66,13 @@ graph TD
 
 The main idea here is to reverse the way you explain things!
 
-The "Reverse" here takes place by not explaining to a kid, but explaining to an **"Expert"** (The AI). This one is also known as "Feynman Technique whit Feedback".
+The "Reverse" here takes place by not explaining to a kid, but explaining to an **"Expert"** (The AI). This one is also known as "Feynman Technique with Feedback".
 
 You should still keep your language simple to ensure *you* understand the core, but you gain velocity by having your errors pointed out instantly by an AI agent. In the usual Feynman Technique, you can get lost while trying to "Discover your Gaps". Think about it: you could possibly be learning (and explaining) everything wrong the whole time, and you only find out after many iterations!
 
 **It protects the learner from hallucination.**
 
-This "Reverse Feynman Technique" should be called "Feynman Technique with Feedback". The AI is used to review things you missed and to make sure you are not missing the point.
+The AI is used to review things you missed and to make sure you are not missing the point.
 
 The flow is exactly the same as the previous, but with a small change in efficiency:
 
